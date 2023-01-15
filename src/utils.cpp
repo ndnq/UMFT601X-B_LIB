@@ -79,3 +79,53 @@ void closeDevice(FT_HANDLE ftHandle) {
         std::cout << "Device handle closed successfully" << std::endl;
     }
 }
+
+void writeToPipe(FT_HANDLE ftHandle, unsigned char pipeId, unsigned char value) {
+    DWORD bytesWritten;
+    FT_STATUS ftStatus;
+
+    ftStatus = FT_WritePipe(ftHandle, pipeId, &value, 1, &bytesWritten, NULL);
+    if (ftStatus != FT_OK) {
+        std::cout << "FT_WritePipe failed" << std::endl;
+    } else {
+        std::cout << "Wrote " << (int) value << " to pipe " << (int) pipeId << std::endl;
+    }
+}
+
+unsigned char readFromPipe(FT_HANDLE ftHandle, unsigned char pipeId) {
+    DWORD bytesRead;
+    FT_STATUS ftStatus;
+    unsigned char value;
+
+    ftStatus = FT_ReadPipe(ftHandle, pipeId, &value, 1, &bytesRead, NULL);
+    if (ftStatus != FT_OK) {
+        std::cout << "FT_ReadPipe failed" << std::endl;
+    } else {
+        std::cout << "Read " << (int) value << " from pipe " << (int) pipeId << std::endl;
+    }
+    return value;
+}
+
+void writeBufferToPipe(FT_HANDLE ftHandle, unsigned char pipeId, unsigned char* buffer) {
+    DWORD bytesWritten;
+    FT_STATUS ftStatus;
+
+    ftStatus = FT_WritePipe(ftHandle, pipeId, buffer, BUFFER_WIDTH, &bytesWritten, NULL);
+    if (ftStatus != FT_OK) {
+        std::cout << "FT_WritePipe failed" << std::endl;
+    } else {
+        std::cout << "Wrote " << bytesWritten << " bytes to pipe " << (int) pipeId << std::endl;
+    }
+}
+
+void readBufferFromPipe(FT_HANDLE ftHandle, unsigned char pipeId, unsigned char* buffer) {
+    DWORD bytesRead;
+    FT_STATUS ftStatus;
+
+    ftStatus = FT_ReadPipe(ftHandle, pipeId, buffer, BUFFER_WIDTH, &bytesRead, NULL);
+    if (ftStatus != FT_OK) {
+        std::cout << "FT_ReadPipe failed" << std::endl;
+    } else {
+        std::cout << "Read " << bytesRead << " bytes from pipe " << (int) pipeId << std::endl;
+    }
+}
