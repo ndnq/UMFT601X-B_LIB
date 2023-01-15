@@ -8,6 +8,7 @@
 			"args": [
 				"-fdiagnostics-color=always",
 				"testbench.cpp",
+				"utils.cpp",
 				"${workspaceFolder}\\FTD3XX\\x64\\FTD3XX.lib",
 				"-o",
 				"../test.exe"
