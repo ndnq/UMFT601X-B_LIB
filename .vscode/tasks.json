@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe build active file",
+			"command": "C:\\Programy\\MSYS2\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"testbench.cpp",
+				"${workspaceFolder}\\FTD3XX\\x64\\FTD3XX.lib",
+				"-o",
+				"../test.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: C:\\Programy\\MSYS2\\mingw64\\bin\\g++.exe"
+		}
+	]
+}
