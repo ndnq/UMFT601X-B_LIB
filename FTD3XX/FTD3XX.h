@@ -1,6 +1,6 @@
 /*++
 
-Copyright © 2016 Future Technology Devices International Limited
+Copyright ï¿½ 2016 Future Technology Devices International Limited
 
 THIS SOFTWARE IS PROVIDED BY FUTURE TECHNOLOGY DEVICES INTERNATIONAL LIMITED "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
@@ -493,6 +493,8 @@ typedef struct _FT_DEVICE_LIST_INFO_NODE
 // Else if using dynamic link library
 // Don't enable FTD3XX_EXPORTS
 //
+
+#define FTD3XX_STATIC
 
 #ifdef FTD3XX_EXPORTS
 #define FTD3XX_API __declspec(dllexport)
