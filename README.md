@@ -45,7 +45,7 @@ Zamyka połączenie z urządzeniem zwraca ```handle``` do niego
 
 ```writeToPipe (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char value  );```
 
-Pisze do kanału (pipe) identyfikowanego przez ```pipeId``` bajt w zmiennej ```value``.
+Pisze do kanału (pipe) identyfikowanego przez ```pipeId``` bajt w zmiennej ```value```.
 
 
 ```readFromPipe (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char* pdata                       );```
