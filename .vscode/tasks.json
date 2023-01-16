@@ -7,11 +7,11 @@
 			"command": "C:\\Programy\\MSYS2\\mingw64\\bin\\g++.exe",
 			"args": [
 				"-fdiagnostics-color=always",
-				"testbench.cpp",
-				"utils.cpp",
+				"example.cpp",
+				"src/UMFT601X.cpp",
 				"${workspaceFolder}\\FTD3XX\\x64\\Static\\FTD3XX.lib",
 				"-o",
-				"../test.exe"
+				"example.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
