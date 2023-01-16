@@ -1,6 +1,6 @@
 ## Dokumentacja
 
-### Biblioteka do płytki:
+### Płytka:
 
 UMFT601X-B 32 Bit FIFO bus, FMC(Low Pin Count) connector with B version chip
 Jej dokumentacja:
