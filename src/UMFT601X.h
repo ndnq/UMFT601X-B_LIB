@@ -3,13 +3,12 @@
 
 #include <iostream>
 #include "../FTD3XX/FTD3XX.h"
-//Szerokość buforu w bajtach 
-#define BUFFER_WIDTH 16
 
 //Funkcje zwiazane z identyfikacja urzadzenia
 void            listDeviceInfo();
-FT_HANDLE       openDeviceBySerialNumber    (std::string serialNumber);
+FT_STATUS       openDeviceBySerialNumber    (std::string serialNumber,FT_HANDLE* ftHandle);
 void            closeDevice                 (FT_HANDLE ftHandle);
+
 //  Funkcje pisania i czytania z kolejki
 //  Pipe id to:
 /// 0 0x01 OUT BULK endpoint for Session List commands
@@ -17,9 +16,9 @@ void            closeDevice                 (FT_HANDLE ftHandle);
 /// 1 0x02-0x05 OUT BULK endpoint for application write access
 /// 0x82-0x85 IN BULK endpoint for application read access
 
-void            writeToPipe                 (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char value);
-unsigned char   readFromPipe                (FT_HANDLE ftHandle, unsigned char pipeId   );
-void            writeBufferToPipe           (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char* buffer);
-void            readBufferFromPipe          (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char* buffer);
+FT_STATUS       writeToPipe                 (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char    value   );
+FT_STATUS       readFromPipe                (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char*   pdata   );
+void            writeBufferToPipe           (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char*   buffer, unsigned int size  );
+void            readBufferFromPipe          (FT_HANDLE ftHandle, unsigned char pipeId, unsigned char*   buffer, unsigned int size  );
 
 #endif
